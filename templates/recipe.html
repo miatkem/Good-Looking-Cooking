@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/main.css">
+    <link rel="stylesheet" href="../static/recipe.css">
+    <title>Good Looking Cooking</title>
+</head>
+<body>
+    <div class="container">
+        <!--Navgation Bar-->
+        <div class="top-bar">
+            <a href="home"><img class="logo" src="../static/logo.svg" /> </a>
+            <a href="add-recipe" class="add-link"><img src="../static/plus.svg" class="add" /> </a>
+            <a href="user"><img src="../static/user.svg" class="user" /> </a>
+        </div>
+        <div class="content-screen">
+
+            <!--Content-->
+            <div class="content">
+                <h2>{{recipe.name}}</h2>
+                <a href={{recipe.link}}><p class="original-recipe">Original Recipe ></p></a>
+                <img src={{recipe.image}} />
+
+                <div class="twitter-block">
+                    <h4>Quotes from Twitter:</h4>
+                    {%for tweet in tweets%}
+                        <p><i>"{{tweet.text}}" ({{tweet.user}})</i></p>
+                    {%endfor%}
+                </div>
+
+                <div class="time-block">
+                    <p>Time To Cook: <i>{{recipe.timeToCook}}</i></p>
+                    <p>Servings: <i>{{recipe.servings}}</i></p>
+                </div>
+
+                <div class="description-block">
+                    <p>{{recipe.description|safe}}</p>
+                </div>
+               
+                <div class="ingredient-block">
+                    <p>Ingredients: <i>{{recipe.amtIngridients}}</i></p>
+                    <ul>
+                        {%for ingredient in recipe.ingredients%}
+                        <li>{{ingredient}}</li>
+                        {%endfor%}
+                    </ul>
+                </div>
+
+                <div class="recipe-block">
+                    <p>Recipe:</p>
+                    <ol>
+                        {%for step in recipe.steps%}
+                        <li>{{step}}</li><br />
+                        {%endfor%}
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/main.css">
+    <link rel="stylesheet" href="../static/search-results.css">
+    <title>Good Looking Cooking</title>
+</head>
+<body>
+    <div class="container">
+        <!--Navgation Bar-->
+        <div class="top-bar">
+            <a href="home"><img class="logo" src="../static/logo.svg" /> </a>
+            <a href="add-recipe" class="add-link"><img src="../static/plus.svg" class="add" /> </a>
+            <a href="user"><img src="../static/user.svg" class="user" /> </a>
+        </div>
+        <div class="content-screen">
+            <div class="search-form">
+                <form name="search" method="POST" action="search-results">
+                    <img src="../static/search.svg" onclick="document.forms['search'].submit();">
+                    <input type="text" class="search-bar" id="search" name="search">
+                </form>
+            </div>
+            <!--Content-->
+            <div class="content">
+                <h3>Search '{{query}}'</h3>
+                
+                
+                {%for recipe in recipes%}
+                <div class="result-row">
+                    <a class="recipe-link" href="recipe?recipeName={{recipe.name}}">
+                        <div class="result">
+                            <img src={{recipe.image}} />
+                            <div>
+                                <h4 class="recipe-name">{{recipe.name}}</h4>
+                                <div class="times">
+                                    <p>Time to Cook: <i>{{recipe.timeToCook}}</i></p>
+                                </div>
+                                <p class="ingredients">Ingredients: <i>{{recipe.amtIngredients}}</i></p> <br />
+                                <div class="description">
+                                    <p>{{recipe.description|safe}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

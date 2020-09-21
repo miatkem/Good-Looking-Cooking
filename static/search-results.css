@@ -1,0 +1,64 @@
+﻿h3 {
+    text-align:left;
+    margin: 10px 10px 10px 25px;
+    font-size: 24px;
+    font-weight:400;
+}
+
+.result-row{
+    margin: 20px;
+}
+
+.result {
+    display:inline-block;
+    text-align:left;
+
+}
+
+.result img {
+    float:left;
+    margin: 10px 10px 5px 5px;
+    width: 107px;
+}
+
+.result h4 {
+    margin: 0 auto 1px;
+}
+
+.result p {
+    margin: 0;
+    display: inline;
+    font-size: 14px;
+}
+
+.description {
+    margin-top: 7px;
+    margin-left: 15px;
+    display: block;
+    vertical-align: top;
+    overflow: hidden;
+    height: 60px;
+    font-size: 12px;
+}
+
+.times p {
+    display: inline;
+    vertical-align: top;
+    margin-right: 15px;
+}
+
+
+.description p {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    display: inline;
+    font-size: 14px;
+    
+}
+
+.recipe-link {
+    text-decoration: none;
+    color: #F9F1F1;
+}
+

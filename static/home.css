@@ -1,0 +1,16 @@
+﻿.category-row {
+    display: block;
+}
+
+.category-box {
+    display: inline-block;
+    width: 133px;
+    height: 127px;
+    margin: 5px;
+}
+
+.category-box h2 {
+    font-size: 29px;
+    margin: 5px auto;
+    font-weight: 400;
+}

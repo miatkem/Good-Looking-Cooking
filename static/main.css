@@ -1,0 +1,113 @@
+﻿body {
+    background-color: #053A40;
+    font-family: 'Segoe UI';
+    color: #F9F1F1;
+    margin: 0;
+    z-index: 0;
+}
+
+.orange {
+    background-color: #FF8659;
+}
+
+.red {
+    background-color: #FF4A4A;
+}
+
+.blue {
+    background-color: #007578;
+}
+
+
+.container {
+}
+
+/*Nav Bar*/
+.top-bar {
+    background-color: #7A9D95;
+    margin: 0;
+    text-align: center;
+    height: 80px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin: 10px 20px;
+    float:left;
+}
+
+.add {
+    text-align: center;
+    position:relative;
+    top:55px;
+    width: 50px;
+    height: 50px;
+
+}
+
+.add-link{ z-index:6; }
+
+.user {
+    float: right;
+    margin: 10px 20px;
+}
+
+.search-form {
+    display: inline-block;
+    text-align: center;
+    margin:10px 30px;
+}
+
+.search-form img {
+    position:relative;
+    right: 115px;
+    top:45px;
+}
+
+.search-bar {
+    width: 233px;
+    height: 41px;
+    padding-left: 50px;
+}
+
+
+/*Other Elements*/
+.content{
+    text-align:center;
+}
+
+.title {
+    font-size: 47px;
+    color: #FFB26E;
+    font-family: 'TechnicBold','Segoe UI';
+    width: 298px;
+    margin: 10px auto 10px;
+}
+
+button {
+    width: 225px;
+    font-size: 29px;
+    border-radius: 10px;
+    border-style: none;
+    box-shadow: #000000 2px 2px;
+    color: #F9F1F1;
+    display: block;
+    padding: 3px;
+    margin: 8px auto 8px;
+}
+
+.center {
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+input {
+    height: 40px;
+    width: 225px;
+    border-radius: 10px;
+    border-style: none;
+    margin: 5px auto 10px;
+}
+

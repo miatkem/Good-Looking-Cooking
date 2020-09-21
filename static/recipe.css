@@ -1,0 +1,82 @@
+﻿.content {
+    margin: 40px 35px 25px 35px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.original-recipe {
+    margin-top: -20px;
+    color: #F9F1F1;
+    font-size:16px;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+
+.content img {
+    width:215px; 
+}
+
+.twitter-block h4 {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    margin: 10px 0 10px 0;
+}
+
+
+.twitter-block p {
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.description-block {
+    font-size: 16px;
+    text-align:left;
+}
+
+.time-block {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.time-block p {
+    display: inline;
+    vertical-align: top;
+    margin-right: 15px;
+ 
+}
+
+.ingredient-block{
+    text-align:left;
+}
+
+.ingredient-block p {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.ingredient-block ul {
+    margin-top: 5px;
+}
+
+.recipe-block {
+    text-align:left;
+}
+
+.recipe-block ol {
+    padding-left: 17px;
+    margin-top: 5px; 
+}
+
+.recipe-block p {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
