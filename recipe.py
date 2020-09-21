@@ -62,16 +62,20 @@ class Recipe:
 def searchRecipes(query):
     api_key = os.environ['SPOON_API_KEY']
     api = sp.API(api_key)
-
-    # Parse an ingredient
-    response = api.search_recipes_complex(query)
-    data = response.json()
-    
-    recipes = data["results"]
     ids=""
+    if query=="random":
+        response = api.get_random_recipes(True,1)
+        data = response.json()
+        recipes = data["recipes"]
+    else:
+        response = api.search_recipes_complex(query)
+        data = response.json()
+        recipes = data["results"]
     
+    ids=""
     for rec in recipes:
         ids+=""+str(rec["id"])+","
+            
     response = api.get_recipe_information_bulk(ids)
     
     data = response.json()
@@ -80,7 +84,7 @@ def searchRecipes(query):
     for recipeJson in data:
         recipes.append(Recipe(recipeJson))
     return recipes
-
+    
 # TEST CODE
 #rs=searchRecipes("apple")
 #for r in rs:

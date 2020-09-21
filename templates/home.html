@@ -12,52 +12,51 @@
         <!--Navgation Bar-->
         <div class="top-bar">
             <a href="home"><img class="logo" src="../static/logo.svg" /> </a>
-            <a href="add-recipe" class="add-link" ><img src="../static/plus.svg" class="add"/> </a>
+            <a href="random-recipe" class="add-link" ><img src="../static/shuffle.svg" class="add"/> </a>
             <a href="user"><img src="../static/user.svg" class="user" /> </a>
         </div>
         <div class="content-screen">
             <div class="search-form">
                 <form name="search" method="POST" action="search-results">
                     <img src="../static/search.svg" onclick="document.forms['search'].submit();">
-                    <input type="text" class="search-bar" id="search" name="search">
+                    <input type="text" class="search-bar" id="search" name="search"> 
                 </form>
             </div>
 
             <!--Content-->
             <div class="content">
                 <div class="category-row">
-                    <div class="category-box orange">
+                    <a href="search-results?search=Breakfast"><div class="category-box orange">
                         <h2>Breakfast</h2>
-                        <a href="search-results?search=Breakfast"><img src="../static/pancake.svg" /> </a>
-                    </div>
-                    <div class="category-box red">
+                        <img src="../static/pancake.svg" /> 
+                    </div></a>
+                    <a href="search-results?search=Lunch"><div class="category-box red">
                         <h2>Lunch</h2>
-                        <a href="search-results?search=Lunch"><img src="../static/sandwich.svg" /> </a>
-                    </div>
+                        <img src="../static/sandwich.svg" /> 
+                    </div></a>
                 </div>
                 <div class="category-row">
-                    <div class="category-box blue">
+                    <a href="search-results?search=Dinner"><div class="category-box blue">
                         <h2>Dinner</h2>
-                        <a href="search-results?search=Dinner"><img src="../static/steak.svg" /> </a>
-                    </div>
-                    <div class="category-box orange">
+                        <img src="../static/steak.svg" /> 
+                    </div></a>
+                    <a href="search-results?search=Dessert"><div class="category-box orange">
                         <h2>Dessert</h2>
-                        <a href="search-results?search=Dessert"><img src="../static/cake.svg" /> </a>
-                    </div>
+                        <img src="../static/cake.svg" /> 
+                    </div></a>
                 </div>
                 <div class="category-row">
-                    <div class="category-box red">
+                    <a href="search-results?search=Popular"><div class="category-box red">
                         <h2>Popular</h2>
-                        <a href="search-results?search=Popular"><img src="../static/star.svg" /> </a>
-                    </div>
-                    <div class="category-box blue">
+                        <img src="../static/star.svg" /> 
+                    </div></a>
+                    <a href="search-results?search=Snacks"><div class="category-box blue">
                         <h2>Snacks</h2>
-                        <a href="search-results?search=Snacks"><img src="../static/fries.svg" /> </a>
-                    </div>
+                        <img src="../static/fries.svg" /> 
+                    </div></a>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>

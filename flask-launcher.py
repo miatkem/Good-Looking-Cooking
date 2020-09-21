@@ -28,6 +28,9 @@ def profile():
 def recipe():
     recipeName = flask.request.args['recipeName']
     tweets=getTweet(""+recipeName+" -politics -filter:retweets",3)
+    if len(tweets)==0:
+        tweets.append(Tweet("","No tweets found",""))
+        
     recipe = searchRecipes(recipeName)[0]
     return flask.render_template('recipe.html',
     recipe=recipe,
@@ -40,7 +43,6 @@ def searchResults():
         query = req["search"]
         
         recipes = searchRecipes(query)
-        print(recipes)
         if(len(recipes)>0):
             return flask.render_template('search-results.html',
             recipes=recipes,
@@ -59,9 +61,15 @@ def searchResults():
 def home():
     return flask.render_template('home.html')
     
-@app.route('/add-recipe')
-def addRecipe():
-    return flask.render_template('add-recipe.html')
+@app.route('/random-recipe')
+def ranRecipe():
+    recipe = searchRecipes("random")[0]
+    tweets=getTweet(""+recipe.name+" -politics -filter:retweets",3)
+    if len(tweets)==0:
+        tweets.append(Tweet("","No tweets found",""))
+    return flask.render_template('recipe.html',
+    recipe=recipe,
+    tweets=tweets)
     
 app.run(
     port=int(os.getenv('PORT', 8080)),

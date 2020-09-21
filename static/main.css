@@ -1,4 +1,9 @@
-﻿body {
+a {
+    text-decoration:none;
+    color:#F9F1F1;
+}
+
+body {
     background-color: #053A40;
     font-family: 'Segoe UI';
     color: #F9F1F1;
@@ -16,10 +21,6 @@
 
 .blue {
     background-color: #007578;
-}
-
-
-.container {
 }
 
 /*Nav Bar*/
@@ -45,7 +46,9 @@
     height: 50px;
 
 }
-
+.content-screen {
+    text-align: center;
+}
 .add-link{ z-index:6; }
 
 .user {
@@ -54,23 +57,29 @@
 }
 
 .search-form {
+    display: block;
+    text-align: center;
+    margin:10px auto;
+}
+
+.search-form form {
     display: inline-block;
     text-align: center;
-    margin:10px 30px;
+    margin:35px auto 10px;
 }
 
 .search-form img {
     position:relative;
-    right: 115px;
-    top:45px;
+    left: 15px;
+    top: 10px;
 }
 
 .search-bar {
     width: 233px;
     height: 41px;
-    padding-left: 50px;
+    margin-left:-29px;
+    padding-left:50px;
 }
-
 
 /*Other Elements*/
 .content{

@@ -64,7 +64,12 @@ class Tweet:
     user=text=date=''
     
     def __init__(self, user, text, date):
+        dateParts = date.split(" ")
+        if len(dateParts) > 3:
+            dt = " on " + dateParts[0] + " " + dateParts[1] + " " + dateParts[2] + " at " + dateParts[3]
+        else: 
+            dt = ''
         self.user=user
         self.text=text
-        self.date=date
+        self.date=dt
 

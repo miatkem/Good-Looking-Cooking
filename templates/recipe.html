@@ -12,7 +12,7 @@
         <!--Navgation Bar-->
         <div class="top-bar">
             <a href="home"><img class="logo" src="../static/logo.svg" /> </a>
-            <a href="add-recipe" class="add-link"><img src="../static/plus.svg" class="add" /> </a>
+            <a href="random-recipe" class="add-link"><img src="../static/shuffle.svg" class="add" /> </a>
             <a href="user"><img src="../static/user.svg" class="user" /> </a>
         </div>
         <div class="content-screen">
@@ -26,7 +26,7 @@
                 <div class="twitter-block">
                     <h4>Quotes from Twitter:</h4>
                     {%for tweet in tweets%}
-                        <p><i>"{{tweet.text}}" ({{tweet.user}})</i></p>
+                        <p><i>"{{tweet.text}}" ({{tweet.user}} {{tweet.date}})</i></p>
                     {%endfor%}
                 </div>
 
