@@ -2,11 +2,10 @@ import requests
 import os
 import spoonacular as sp
 
-
+#Recipe object - holds recipe data so that recipes can be moved around in a more
+#               light weight data structure in flask
 class Recipe:
-    
-          
-    #ingredients
+    #class variables
     name=""
     decription=""
     timeToCook=""
@@ -15,18 +14,20 @@ class Recipe:
     steps=""
     image=""
     link=""
+    foodKeyWords=[]
     
-    def __init__(self, recipeJson):
-        #name 
+    #oject is initialized by a json object that contains recipe information
+    def __init__(self, recipeJson, extended=True): #extended is used for when all info about a recipe is needed
+        #Initialize variables with simple reading of json
         self.name = recipeJson["title"]
-        
-        #description
         self.description = recipeJson["summary"]
-        
-        #timetocook
         self.timeToCook = str(recipeJson["readyInMinutes"]) + " mins"
-        
-        #ingredients
+        try:
+            self.image = recipeJson["image"]
+        except: #if
+            self.image = "../static/star.svg"
+            
+        #function to parse ingrdients and amounts from recipe json
         def parseIngrdients(recipeJson):
             ingredients = recipeJson["extendedIngredients"]
             result = []
@@ -34,58 +35,72 @@ class Recipe:
                 strIngredient = str(ing["measures"]["us"]["amount"]) + " " + ing["measures"]["us"]["unitShort"] +" of " +ing["name"]
                 result.append(strIngredient)
             return result
-            
         self.ingredients = parseIngrdients(recipeJson)
         self.amtIngredients = len(self.ingredients)
         
-        #sevings
-        self.servings = str(recipeJson["servings"])
         
-        #instructions
-        self.steps = []
-        if(len(recipeJson["analyzedInstructions"])>0):
-            instructions = recipeJson["analyzedInstructions"][0]["steps"]
-            for step in instructions:
-                self.steps.append(step["step"])
         
-        #image
-        try:
-            self.image = recipeJson["image"]
-        except:
-            self.image = "../static/star.svg"
-        
-        #link 
-        self.link = recipeJson["sourceUrl"]
-    
-  
+        #include information needed for full recipe page
+        if extended:
+            
+            #Initialize variables with simple reading of json
+            self.link = recipeJson["sourceUrl"]
+            self.servings = str(recipeJson["servings"])
+            
+            #parse instruction from recipe json
+            self.steps = []
+            if(len(recipeJson["analyzedInstructions"])>0):
+                instructions = recipeJson["analyzedInstructions"][0]["steps"]
+                for step in instructions:
+                    self.steps.append(step["step"])
+                    
+            #use spoonacular to detect the food keywords in the recipe description
+            def getFoodWords(text):
+                api_key = os.environ['SPOON_API_KEY']
+                api = sp.API(api_key)
+                response = api.detect_food_in_text(self.description)
+                data = response.json()
+                foodwords= []
+                for a in data['annotations']:
+                    foodwords.append(a['annotation'])
+                return foodwords
+            self.foodKeyWords = getFoodWords(self.description)
 
-def searchRecipes(query):
+#function to search for recipes in spoonacular given a query string
+def searchRecipes(query, extended=True):
+    
+    #initilize api_key and spoonacular object
     api_key = os.environ['SPOON_API_KEY']
     api = sp.API(api_key)
-    ids=""
-    if query=="random":
+    
+    #request recipes from spoonacular using query
+    if query=="random": #get one random recipe
         response = api.get_random_recipes(True,1)
         data = response.json()
         recipes = data["recipes"]
-    else:
+    else: #get recipes based on query
         response = api.search_recipes_complex(query)
         data = response.json()
         recipes = data["results"]
     
+    #extract recipe id(s) from json response
     ids=""
     for rec in recipes:
         ids+=""+str(rec["id"])+","
-            
-    response = api.get_recipe_information_bulk(ids)
     
+    #use id(s) to capture a more detailed json response about a recipe
+    response = api.get_recipe_information_bulk(ids)
     data = response.json()
     
+    #create a list of recipe objects that are intialized by the json objects in data
     recipes = []
-    for recipeJson in data:
-        recipes.append(Recipe(recipeJson))
-    return recipes
     
-# TEST CODE
-#rs=searchRecipes("apple")
-#for r in rs:
-#    print(r.name,r.decription,r.timeToCook,r.ingredients,r.servings,r.steps,r.image,r.link)
+    #check if search failed
+    try:
+        if data['status'] == 'failure':
+            return recipes
+    #if there is no status then it was succesful, create recipes
+    except:
+        for recipeJson in data:
+            recipes.append(Recipe(recipeJson,extended))
+        return recipes
