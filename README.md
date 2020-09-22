@@ -14,16 +14,16 @@ Step 1 - Setup Twitter API <br/>
 2. Navigate to https://developer.twitter.com/en/portal/projects-and-apps and make a new app.
 3. Click on the key symbol after creating your project, and it will take you to your keys and tokens.
     If needed, you can regenerate your access token and secret.
-4. Create a file in the root directory called twitter.env with key and tokens. It should be formmatted like:
-    export TWITTER_ACCESS_TOKEN='[your access token here]'
-    export TWITTER_ACCESS_TOKEN_SECRET='[your secret access token here]'
-    export TWITTER_API_KEY='[your key here]'
-    export TWITTER_API_KEY_SECRET='[your secret ket here]'
+4. Create a file in the root directory called twitter.env with key and tokens. It should be formmatted like:<br/>
+    export TWITTER_ACCESS_TOKEN='[your access token here]'<br/>
+    export TWITTER_ACCESS_TOKEN_SECRET='[your secret access token here]'<br/>
+    export TWITTER_API_KEY='[your key here]'<br/>
+    export TWITTER_API_KEY_SECRET='[your secret ket here]'<br/>
 
 Step 2 - Setup Spoonacular API
 1. Sign up for the api at https://spoonacular.com/food-api/console#Dashboard
 2. Navigate to https://spoonacular.com/food-api/console#Profile to find your api key
-3. Create a file in the root directory called spoon.env with the key. It should be formmatted like:
+3. Create a file in the root directory called spoon.env with the key. It should be formmatted like:<br/>
     export SPOON_API_KEY='[your api key here]'
 
 Step 3 - Clone Repository
