@@ -1,6 +1,6 @@
 Welcome to the Good Looking Cooking app repository. 
 
-This is web app that allows users to navigate the spoonacular recipe database and find useful recipes.
+This is a web app that allows users to navigate the spoonacular recipe database and find useful recipes.
 
 Note: The CSS is optimized so that it looks best on a mobile device currently. To use it how its meant
 to be used, press F12 in chrome, press the phone/tablet icon to the left of the 'elements' tab on the right
@@ -30,16 +30,16 @@ Step 3 - Clone Repository
 0. Open a terminal in your environment
 1. Clone this repository using git clone https://github.com/NJIT-CS490/project1-mdm56
 
-Step 3 - Install python dependencies
+Step 4 - Install python dependencies
 0. Install Flask using 'sudo pip install flask'
 1. Install requests using 'sudo pip install requests'
 2. Install spoonacular wrapper using 'sudo pip install spoonacular'
 
-Step 4 - Sourcing API Keys
+Step 5 - Sourcing API Keys
 0. In the terminal source the twitter keys by using 'source twitter.env'
 1. In the terminal source the spoonacular key by using 'source spoon.env'
 
-Step 4 - Start the flask app in your environment
+Step 6 - Start the flask app in your environment
 0. Navigate to the root directory of the project
 1. Run flask-launcher.py using the terminal command 'python flask-launcher.py'
 2. The app is now running locally and you should be able to see it using your local ip and port 8080
