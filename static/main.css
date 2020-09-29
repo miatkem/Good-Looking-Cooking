@@ -40,6 +40,7 @@ br {
     height: 60px;
     margin: 10px 20px;
     float:left;
+    margin-left:5%;
 }
 
 .add {
@@ -90,17 +91,7 @@ br {
 }
 
 
-@media only screen and (min-width: 769px) {
-    .content {
-        margin: 0 15%;
-    }
-}
 
-@media only screen and (min-width: 1000px) {
-    .content {
-        margin: 0 25%;
-    }
-}
 
 .title {
     font-size: 47px;
@@ -136,3 +127,25 @@ input {
     margin: 5px auto 10px;
 }
 
+
+@media only screen and (min-width: 769px) {
+    .content {
+        margin: 0 15%;
+    }
+    
+    .top-bar {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .content {
+        margin: 0 25%;
+    }
+    
+    .top-bar {
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+}
