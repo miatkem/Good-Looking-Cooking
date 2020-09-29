@@ -22,23 +22,22 @@
                 <h2>{{recipe.name}}</h2>
                 <a href={{recipe.link}}><p class="original-recipe">Original Recipe ></p></a>
                 <img src={{recipe.image}} />
-
+                <hr/>
                 <div class="twitter-block">
                     <h4>Quotes from Twitter:</h4>
                     {%for tweet in tweets%}
                         <p><i>"{{tweet.text}}" ({{tweet.user}} {{tweet.date}})</i></p>
                     {%endfor%}
                 </div>
-
+                <hr/>
                 <div class="time-block">
-                    <p>Time To Cook: <i>{{recipe.timeToCook}}</i></p>
-                    <p>Servings: <i>{{recipe.servings}}</i></p>
+                    <p><b>Time To Cook:</b> <i>{{recipe.timeToCook}}</i></p>
+                    <p><b>Servings:</b> <i>{{recipe.servings}}</i></p>
                 </div>
-
                 <div class="description-block">
-                    <p>{{recipe.description|safe}}</p>
+                    <p><b>Summary: </b>{{recipe.description|safe}}</p>
                 </div>
-               
+                <hr/>
                 <div class="ingredient-block">
                     <p>Ingredients: <i>{{recipe.amtIngridients}}</i></p>
                     <ul>
@@ -47,7 +46,7 @@
                         {%endfor%}
                     </ul>
                 </div>
-
+                <hr/>
                 <div class="recipe-block">
                     <p>Recipe:</p>
                     <ol>
@@ -56,7 +55,6 @@
                         {%endfor%}
                     </ol>
                 </div>
-
             </div>
         </div>
     </div>
