@@ -24,13 +24,13 @@ def index():
 #login screen - prompts user for email and password
 @app.route('/login')
 def login():
-    #WRITE CODE TO CHECK CREDENTIALS HERE
+    #TODO: WRITE CODE TO CHECK CREDENTIALS HERE
     return flask.render_template('login.html')
 
 #signup screen - prompts user for email, name, and password
 @app.route('/signup')
 def signup():
-    #WRITE CODE TO CHECK CREDENTIALS HERE
+    #TODO: WRITE CODE TO CHECK CREDENTIALS HERE
     return flask.render_template('signup.html')
 
 #profile screen - NOT YET DEVELOPED - will allow user to see liked recipes and update profile info
