@@ -56,7 +56,8 @@ def getTweet(query,amount, keywords=None):
         'q': query,
         'result_type': 'mixed',
         'count': amount,
-        'lang': 'en'
+        'lang': 'en',
+        'tweet_mode': 'extended',
     }
     search_url = '{}1.1/search/tweets.json'.format(url)
     
@@ -67,7 +68,7 @@ def getTweet(query,amount, keywords=None):
     Data =  json.loads(search_resp.content)['statuses']
     tweets=[]
     for i in range(0,len(Data)): #loop through tweets and create tweet objects with needed data
-        tweets.append(Tweet(Data[i]['user']['name'], Data[i]['text'], Data[i]['created_at']))
+        tweets.append(Tweet(Data[i]['user']['name'], Data[i]['full_text'], Data[i]['created_at']))
         
     #IF: no tweets were found with the query
     #THEN: loop through keywords until one gets a response with a tweet
