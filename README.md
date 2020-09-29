@@ -9,7 +9,7 @@ navigatable in a normal desktop view, just not as pleasing to the eye.
 
 Note: There should be no problems with this project
 
-##<b>To set up the app on your server follow these steps:</b>
+## <b>To set up the app on your server follow these steps:</b>
 
 ### Step 1 - Setup Twitter API <br/>
 1. Sign up for the twitter developer portal at https://developer.twitter.com
