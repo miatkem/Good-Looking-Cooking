@@ -11,6 +11,10 @@ body {
     z-index: 0;
 }
 
+br {
+    color: white;
+}
+
 .orange {
     background-color: #FF8659;
 }
@@ -46,9 +50,7 @@ body {
     height: 50px;
 
 }
-.content-screen {
-    text-align: center;
-}
+
 .add-link{ z-index:6; }
 
 .user {
@@ -84,6 +86,20 @@ body {
 /*Other Elements*/
 .content{
     text-align:center;
+    margin:5%;
+}
+
+
+@media only screen and (min-width: 769px) {
+    .content {
+        margin: 0 15%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .content {
+        margin: 0 25%;
+    }
 }
 
 .title {
